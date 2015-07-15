@@ -2,15 +2,15 @@
 import re, collections
 
 def words(text):
-    return re.findall('[a-z]+', text.lower()) 
+    return re.findall('[a-z]+', text.lower())
 
 def train(features):
-    model = collections.defaultdict(lambda:1)
+    model = collections.defaultdict(int)
     for f in features:
         model[f] += 1
     return model
 
-NWORDS = train(words(file('big.txt').read()))
+NWORDS = train(words(file('vocabulary.txt').read()))
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
